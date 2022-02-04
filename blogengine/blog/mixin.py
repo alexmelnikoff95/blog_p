@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
+from django.views.generic import CreateView
 
 
 class ObjectDetailMixin:
@@ -28,7 +29,7 @@ class ObjectCreateMixin:
             return redirect(new_tag)
         return render(request, self.template, context={'form': bound_form})
 
-
+CreateView
 class ObjectUpdateMixin:
     model = None
     model_form = None

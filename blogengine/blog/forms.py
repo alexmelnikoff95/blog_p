@@ -16,7 +16,7 @@ class TagForm(forms.ModelForm):
 
     def clean_slug(self):
         new_slug = self.cleaned_data['slug'].lower()
-
+        '''Для создания уникального слага'''
         if new_slug == 'create':
             raise ValidationError('slug not be ')
         if Tag.objects.filter(slug__iexact=new_slug).count():
@@ -38,6 +38,7 @@ class PostForm(forms.ModelForm):
 
         def clean_slug(self):
             new_slug = self.cleaned_data['slug'].lower()
+            '''Для создания уникального слага'''
             if new_slug == 'create':
                 raise ValidationError('error')
             return new_slug
